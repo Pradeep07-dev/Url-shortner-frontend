@@ -20,7 +20,7 @@ const App = () => {
     console.log("data:", data);
     setOrgUrl(data?.orgUrl);
     axios
-      .post("http://localhost:3000/create", data)
+      .post("https://url-shortner-backend-8xp1.onrender.com/create", data)
       .then((response) => {
         console.log("Response:", response);
         console.log("Response Data:", response.data);

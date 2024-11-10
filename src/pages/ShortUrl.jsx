@@ -6,11 +6,11 @@ const ShortUrl = () => {
   const { hashvalue } = useParams();
   const navigate = useNavigate();
   console.log("Value:", hashvalue);
-  console.log(`http://localhost:3000/${hashvalue}`);
+  console.log(`https://url-shortner-backend-8xp1.onrender.com/${hashvalue}`);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/${hashvalue}`)
+      .get(`https://url-shortner-backend-8xp1.onrender.com/${hashvalue}`)
       .then((response) => {
         console.log("Get Url:", response?.data);
         const OrgUrl = response?.data?.OrgUrl;
