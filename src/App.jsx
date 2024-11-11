@@ -1,5 +1,4 @@
 import React from "react";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ShortUrl from "./pages/ShortUrl";
 import Home from "./pages";
@@ -24,24 +23,24 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "test",
-      element: <div />,
-    },
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/:hashvalue",
-      element: <ShortUrl />,
-    },
-    {
-      path: "/testing",
-      element: <ShortUrl></ShortUrl>,
-    },
-  ]);
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "test",
+  //     element: <div />,
+  //   },
+  //   {
+  //     path: "/",
+  //     element: <Home />,
+  //   },
+  //   {
+  //     path: "/:hashvalue",
+  //     element: <ShortUrl />,
+  //   },
+  //   {
+  //     path: "/testing",
+  //     element: <ShortUrl></ShortUrl>,
+  //   },
+  // ]);
 
   console.log("called");
 
