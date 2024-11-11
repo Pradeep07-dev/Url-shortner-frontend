@@ -13,9 +13,6 @@ const ShortUrl = () => {
       .then((response) => {
         const OrgUrl = response?.data?.OrgUrl;
 
-        console.log("Hash value:", hashvalue);
-        console.log("Org url:", OrgUrl);
-
         if (OrgUrl) {
           window.location.href = OrgUrl;
         }
