@@ -8,6 +8,10 @@ import ToastProvider from "./Toast/ToastProvider.jsx";
 
 const router = createBrowserRouter([
   {
+    path: "/test",
+    element: <div />,
+  },
+  {
     path: "/",
     element: <App></App>,
   },
