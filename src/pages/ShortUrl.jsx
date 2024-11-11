@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ShortUrl = () => {
+  console.log("SHort Url called");
   const { hashvalue } = useParams();
   const navigate = useNavigate();
 
@@ -11,6 +12,9 @@ const ShortUrl = () => {
       .get(`https://url-shortner-backend-8xp1.onrender.com/${hashvalue}`)
       .then((response) => {
         const OrgUrl = response?.data?.OrgUrl;
+
+        console.log("Hash value:", hashvalue);
+        console.log("Org url:", OrgUrl);
 
         if (OrgUrl) {
           window.location.href = OrgUrl;

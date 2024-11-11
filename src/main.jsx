@@ -15,6 +15,10 @@ const router = createBrowserRouter([
     path: "/:hashvalue",
     element: <ShortUrl></ShortUrl>,
   },
+  {
+    path: "/testing",
+    element: <ShortUrl></ShortUrl>,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
