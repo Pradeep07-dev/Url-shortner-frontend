@@ -17,17 +17,10 @@ const App = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log("data:", data);
     setOrgUrl(data?.orgUrl);
     axios
       .post("https://url-shortner-backend-8xp1.onrender.com/create", data)
       .then((response) => {
-        console.log("Response:", response);
-        console.log("Response Data:", response.data);
-        console.log(
-          "Response Data:",
-          response?.data?.isUrl || response?.data?.newUrl[0]?.ShortUrl
-        );
         setShortUrl(
           response?.data?.isUrl || response?.data?.newUrl[0]?.ShortUrl
         );
@@ -36,8 +29,6 @@ const App = () => {
         `Error: ${error?.response?.data.message}`;
       });
   };
-
-  if (shortUrl) console.log("Short Url:", shortUrl);
 
   const handleCopy = useCallback(async () => {
     try {
