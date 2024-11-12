@@ -7,6 +7,7 @@ import { TiTick } from "react-icons/ti";
 import { useToast } from "../Toast/ToastService";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [shortUrl, setShortUrl] = useState("");
   const [orgUrl, setOrgUrl] = useState("");
   const toast = useToast();
@@ -18,6 +19,8 @@ const Home = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    setIsLoading(true);
+    setShortUrl("");
     setOrgUrl(data?.orgUrl);
     axios
       .post("https://url-shortner-backend-8xp1.onrender.com/create", data)
@@ -25,11 +28,14 @@ const Home = () => {
         setShortUrl(
           response?.data?.isUrl || response?.data?.newUrl[0]?.ShortUrl
         );
+        setIsLoading(false);
       })
       .catch((error) => {
         `Error: ${error?.response?.data.message}`;
       });
   };
+
+  console.log(isLoading, "isloding");
 
   const handleCopy = useCallback(async () => {
     try {
@@ -93,6 +99,11 @@ const Home = () => {
           </button>
         </form>
       </div>
+      {isLoading && (
+        <div className="max-w-[90%] mx-auto px-4 py-2 md:max-w-[80%] lg:max-w-[60%] lg:px-8 lg:py-4">
+          Loading...
+        </div>
+      )}
       {shortUrl && (
         <div className=" max-w-[90%] mx-auto px-4 py-2 flex flex-col gap-12 justify-start border-2 bg-white rounded-lg shadow-md md:max-w-[80%] lg:max-w-[60%] lg:px-8 lg:py-4 ">
           <div>
